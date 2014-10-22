@@ -1,0 +1,13 @@
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\bin\Debug\TPRK.exe.config
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\bin\Debug\TPRK.exe
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\bin\Debug\TPRK.pdb
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\obj\Debug\TPRK.csprojResolveAssemblyReference.cache
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\obj\Debug\MainWindow.baml
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\obj\Debug\MainWindow.g.cs
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\obj\Debug\App.g.cs
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\obj\Debug\TPRK_MarkupCompile.cache
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\obj\Debug\TPRK.g.resources
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\obj\Debug\TPRK.Properties.Resources.resources
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\obj\Debug\TPRK.csproj.GenerateResource.Cache
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\obj\Debug\TPRK.exe
+c:\users\y.belyaeva\documents\visual studio 2013\Projects\TPRK\TPRK\obj\Debug\TPRK.pdb
