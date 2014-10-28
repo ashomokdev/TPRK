@@ -1,0 +1,10 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\BK\Projects\cp\WPF3D\Rel2\Test3DChart\Test3DChart\bin\Debug\Test3DChart.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\BK\Projects\cp\WPF3D\Rel2\Test3DChart\Test3DChart\bin\Debug\Test3DChart.exe</StartProgram>
+  </PropertyGroup>
+</Project>
