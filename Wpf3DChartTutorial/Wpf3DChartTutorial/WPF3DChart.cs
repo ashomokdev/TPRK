@@ -1863,11 +1863,11 @@ namespace Wpf3DChartTutorial
                     }
                 }
 
-                // Now draw the XZ plane and Y plane
+                //// Now draw the XZ plane and Y plane
                 Ht = (chartSize.Height /50.0);
 
-                OneYUnit = Ht/ MaxY;
-                OneYUnit = 1 / OneYUnit;
+                OneYUnit = Ht / MaxY;
+                OneYUnit = 1 / OneYUnit;             
 //                List<ModelVisual3D> modelBars1 = DrawXYZWithMarkings(XItems, XItems.Length, MaxY / (Ht - 1), (int)Ht, ZItems, ZItems.Length, BarWidth, XAxisColorItem,
   //                                          YAxisColorItem, Colors.Black, Colors.Black, Colors.Black);
                 List<ModelVisual3D> modelBars1 = DrawXYZWithMarkings(XItems, XItems.Length, OneYUnit, (int)(Ht), ZItems, ZItems.Length, BarWidth, XAxisColorItem,
@@ -1980,12 +1980,19 @@ namespace Wpf3DChartTutorial
             XAngle = DEFAULT_X_ANGLE;
             YAngle = DEFAULT_Y_ANGLE;
 
-            ChartTitle = "WPF 3D Chart Demo";
+            ChartTitle = "Параметрична схема ситуації";
             XAxisColor = "Bisque";
             YAxisColor = "Burlywood";
-            XValuesInput = "One,Two,Three,Four,Five";
-            ZValuesInput =  "Comp A,Comp B,Comp C" ;
-            YValuesInput =  "2, 4, 6, 8, 4, 9, 8, 10, 7, 6,11, 15, 12, 10, 9";
+            XValuesInput = "За Мир, Злагода, Стабільність, Ділом, Аграрна партія"; //дії
+            YValuesInput = "1, 1, 2, 2, 0, 2, 2, 2, 1, 0, 0, 2, 2, 2, 1, 0, 0, 1, 1, 2"; //наслідки //мають бути цифри!
+            ZValuesInput = "Правлячі, Новоутворені, Маргінальні, Опозиційні"; //значення неспостережуваного параметру 
+
+            //ChartTitle = "WPF 3D Chart Demo";
+            //XAxisColor = "Bisque";
+            //YAxisColor = "Burlywood";
+            //XValuesInput = "One,Two,Three,Four,Five";
+            //YValuesInput = "2, 4, 6, 8, 4, 9, 8, 10, 7, 6,11, 15, 12, 10, 9";
+            //ZValuesInput =  "Comp A,Comp B,Comp C";           
             ZValuesColor = "DarkGreen, DarkBlue, DarkRed";
             MouseSens = DEFAULT_MOUSE_SENSITIVITY;
 
