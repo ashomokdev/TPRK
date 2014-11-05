@@ -41,7 +41,7 @@ namespace Wpf3DChartTutorial
         public void Update()
         {
             strToDisplay.Length = 0;
-            strToDisplay.AppendFormat("X={0}; Y={1}; Z={2}", xItem, yItem, zItem);
+            strToDisplay.AppendFormat("U={0}; X={1}; Θ={2}", xItem, yItem, zItem);
         }
 
         public Point3D PointToWrite
