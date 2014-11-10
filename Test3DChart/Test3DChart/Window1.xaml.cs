@@ -21,49 +21,50 @@ namespace Test3DChart
     public partial class Window1 : Window
     {
         public Window1()
-        {
-            InitializeComponent();
-            textBox1.Text = wPF3DChart1.XValuesInput;
-            textBox2.Text = wPF3DChart1.YValuesInput;
-            textBox3.Text = wPF3DChart1.ZValuesInput;
-            textBox4.Text = wPF3DChart1.ChartTitle;
-            textBox5.Text = wPF3DChart1.ZValuesColor;
-            //textBox6.Text = wPF3DChart1.XAxisColor;
-            //textBox7.Text = wPF3DChart1.YAxisColor;
-            slider1.Minimum = 1.0;
-            slider1.Maximum = 20.0;
-            slider1.Value = wPF3DChart1.MouseSens;
+        {           
+             InitializeComponent();
+             textBox1.Text = wPF3DChart1.XValuesInput;
+             textBox2.Text = wPF3DChart1.YValuesInput;
+             textBox3.Text = wPF3DChart1.ZValuesInput;
+             textBox4.Text = wPF3DChart1.ChartTitle;
+             textBox5.Text = wPF3DChart1.ZValuesColor;
+             //textBox6.Text = wPF3DChart1.XAxisColor;
+             //textBox7.Text = wPF3DChart1.YAxisColor;
+             slider1.Minimum = 1.0;
+             slider1.Maximum = 20.0;
+             slider1.Value = wPF3DChart1.MouseSens;
 
-            Binding MouseValueBinding = new Binding("Value");
-            MouseValueBinding.Source = slider1;
-            MouseValueBinding.Mode = BindingMode.TwoWay;
-            wPF3DChart1.SetBinding(WPF3DChart.MouseSensProperty, MouseValueBinding);
+             Binding MouseValueBinding = new Binding("Value");
+             MouseValueBinding.Source = slider1;
+             MouseValueBinding.Mode = BindingMode.TwoWay;
+             wPF3DChart1.SetBinding(WPF3DChart.MouseSensProperty, MouseValueBinding);
 
 
-            Binding XValueBinding = new Binding("Text");
-            XValueBinding.Source = textBox1;
-            XValueBinding.Mode = BindingMode.TwoWay;
-            wPF3DChart1.SetBinding(WPF3DChart.XValuesInputProperty, XValueBinding);
+             Binding XValueBinding = new Binding("Text");
+             XValueBinding.Source = textBox1;
+             XValueBinding.Mode = BindingMode.TwoWay;
+             wPF3DChart1.SetBinding(WPF3DChart.XValuesInputProperty, XValueBinding);
 
-            Binding YValueBinding = new Binding("Text");
-            YValueBinding.Source = textBox2;
-            YValueBinding.Mode = BindingMode.TwoWay;
-            wPF3DChart1.SetBinding(WPF3DChart.YValuesInputProperty, YValueBinding);
+             Binding YValueBinding = new Binding("Text");
+             YValueBinding.Source = textBox2;
+             YValueBinding.Mode = BindingMode.TwoWay;
+             wPF3DChart1.SetBinding(WPF3DChart.YValuesInputProperty, YValueBinding);
 
-            Binding ZValueBinding = new Binding("Text");
-            ZValueBinding.Source = textBox3;
-            ZValueBinding.Mode = BindingMode.TwoWay;
-            wPF3DChart1.SetBinding(WPF3DChart.ZValuesInputProperty, ZValueBinding);
+             Binding ZValueBinding = new Binding("Text");
+             ZValueBinding.Source = textBox3;
+             ZValueBinding.Mode = BindingMode.TwoWay;
+             wPF3DChart1.SetBinding(WPF3DChart.ZValuesInputProperty, ZValueBinding);
 
-            Binding ChartTitleBinding = new Binding("Text");
-            ChartTitleBinding.Source = textBox4;
-            ChartTitleBinding.Mode = BindingMode.TwoWay;
-            wPF3DChart1.SetBinding(WPF3DChart.ChartTitleProperty, ChartTitleBinding);
+             Binding ChartTitleBinding = new Binding("Text");
+             ChartTitleBinding.Source = textBox4;
+             ChartTitleBinding.Mode = BindingMode.TwoWay;
+             wPF3DChart1.SetBinding(WPF3DChart.ChartTitleProperty, ChartTitleBinding);
 
-            Binding ZValueColorBinding = new Binding("Text");
-            ZValueColorBinding.Source = textBox5;
-            ZValueColorBinding.Mode = BindingMode.TwoWay;
-            wPF3DChart1.SetBinding(WPF3DChart.ZValuesColorProperty, ZValueColorBinding);
+             Binding ZValueColorBinding = new Binding("Text");
+             ZValueColorBinding.Source = textBox5;
+             ZValueColorBinding.Mode = BindingMode.TwoWay;
+             wPF3DChart1.SetBinding(WPF3DChart.ZValuesColorProperty, ZValueColorBinding);
+            
 
             //Binding XAxisColorbinding = new Binding("Text");
             //XAxisColorbinding.Source = textBox6;
@@ -81,6 +82,10 @@ namespace Test3DChart
             //HideChartBinding.Source = radioButton1;
             //HideChartBinding.Mode = BindingMode.TwoWay;
             //wPF3DChart1.SetBinding(WPF3DChart.HideChartProperty, HideChartBinding);
+
+
+            Graph2D graph = new Graph2D();
+            graph.Show();
         }
 
         public void Update()
