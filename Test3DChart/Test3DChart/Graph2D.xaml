@@ -1,0 +1,47 @@
+﻿<Window x:Class="Test3DChart.Graph2D"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:local="clr-namespace:Test3DChart"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        Title="Графік непараметричної схеми ситуації" Height="443" Width="642">
+    <Window.Resources>
+        <local:DataCollection x:Key="DataCollection"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Margin="5,46,162,46">
+
+            <!-- Chart with shared DataContext -->
+            <chartingToolkit:Chart
+                Title="Графік непараметричної схеми ситуації"
+                x:Name="BarChart"
+                DataContext="{StaticResource DataCollection}">
+                <!-- West Store data -->
+                <chartingToolkit:LineSeries
+                    Title="West Store"
+                    ItemsSource="{Binding}"
+                    IndependentValuePath="Actions"
+                    DependentValuePath="WestStoreQuantity"/>
+                <!-- East Store data -->
+                <chartingToolkit:LineSeries
+                    Title="East Store"
+                    ItemsSource="{Binding}"
+                    IndependentValuePath="Actions"
+                    DependentValuePath="EastStoreQuantity"/>
+
+                <!--<chartingToolkit:Chart.Axes>
+                    <chartingToolkit:CategoryAxis Title="City" Orientation="Y" FontStyle="Italic"/>
+                    <chartingToolkit:LinearAxis Title="Population" Orientation="X" Minimum="0" Maximum="2500000" Interval="500000" ShowGridLines="True"  FontStyle="Italic"/>
+                </chartingToolkit:Chart.Axes>-->
+                
+            </chartingToolkit:Chart>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
