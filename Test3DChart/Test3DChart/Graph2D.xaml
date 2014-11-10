@@ -18,8 +18,13 @@
             <!-- Chart with shared DataContext -->
             <chartingToolkit:Chart
                 Title="Графік непараметричної схеми ситуації"
-                x:Name="BarChart"
                 DataContext="{StaticResource DataCollection}">
+                
+                <chartingToolkit:Chart.Axes>
+                    <chartingToolkit:CategoryAxis Title="Actions (X)" Orientation="X"/>
+                    <chartingToolkit:LinearAxis Title="Consequences (C)" Orientation="Y"/>
+                </chartingToolkit:Chart.Axes>
+                
                 <!-- West Store data -->
                 <chartingToolkit:LineSeries
                     Title="West Store"
@@ -33,10 +38,6 @@
                     IndependentValuePath="Actions"
                     DependentValuePath="EastStoreQuantity"/>
 
-                <!--<chartingToolkit:Chart.Axes>
-                    <chartingToolkit:CategoryAxis Title="City" Orientation="Y" FontStyle="Italic"/>
-                    <chartingToolkit:LinearAxis Title="Population" Orientation="X" Minimum="0" Maximum="2500000" Interval="500000" ShowGridLines="True"  FontStyle="Italic"/>
-                </chartingToolkit:Chart.Axes>-->
                 
             </chartingToolkit:Chart>
 

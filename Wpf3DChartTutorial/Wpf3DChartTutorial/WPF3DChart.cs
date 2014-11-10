@@ -1993,7 +1993,7 @@ namespace Wpf3DChartTutorial
             //XValuesInput = "One,Two,Three,Four,Five";
             //YValuesInput = "2, 4, 6, 8, 4, 9, 8, 10, 7, 6,11, 15, 12, 10, 9";
             //ZValuesInput =  "Comp A,Comp B,Comp C";           
-            ZValuesColor = "DarkGreen, DarkBlue, DarkRed";
+            ZValuesColor = "DarkGreen, DarkBlue, DarkRed, DarkCyan";
             MouseSens = DEFAULT_MOUSE_SENSITIVITY;
 
             XCameraPosition = centreX;
