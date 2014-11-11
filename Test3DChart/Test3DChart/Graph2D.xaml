@@ -5,9 +5,6 @@
         xmlns:local="clr-namespace:Test3DChart"
         xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         Title="Графік непараметричної схеми ситуації" Height="443" Width="642">
-    <Window.Resources>
-        <local:DataCollection x:Key="DataCollection"/>
-    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -18,8 +15,7 @@
             <!-- Chart with shared DataContext -->
             <chartingToolkit:Chart
                 Name="Chart2D"
-                Title="Графік непараметричної схеми ситуації"
-                DataContext="{StaticResource DataCollection}">
+                Title="Графік непараметричної схеми ситуації">
                 
                 <chartingToolkit:Chart.Axes>
                     <chartingToolkit:CategoryAxis Title="Actions (X)" Orientation="X"/>
@@ -28,17 +24,9 @@
                 
                  <!--West Store data--> 
                 <chartingToolkit:LineSeries
-                    Title="West Store"
-                    ItemsSource="{Binding}"
-                    IndependentValuePath="Actions"
-                    DependentValuePath="WestStoreQuantity"/>
-                 <!--East Store data--> 
-                <chartingToolkit:LineSeries
-                    Title="East Store"
-                    ItemsSource="{Binding}"
-                    IndependentValuePath="Actions"
-                    DependentValuePath="EastStoreQuantity"/>
-
+                    Title="line1"
+                    IndependentValueBinding="{Binding Action}"
+                    DependentValueBinding="{Binding Consequence}"/>
                 
             </chartingToolkit:Chart>
 
