@@ -23,8 +23,8 @@ namespace Test3DChart
         public Window1()
         {           
              InitializeComponent();
-             textBox1.Text = wPF3DChart1.XValuesInput;
-             textBox2.Text = wPF3DChart1.YValuesInput;
+             textBoxActions.Text = wPF3DChart1.XValuesInput;
+             textBoxConsequences.Text = wPF3DChart1.YValuesInput;
              textBox3.Text = wPF3DChart1.ZValuesInput;
              textBox4.Text = wPF3DChart1.ChartTitle;
              textBox5.Text = wPF3DChart1.ZValuesColor;
@@ -41,12 +41,12 @@ namespace Test3DChart
 
 
              Binding XValueBinding = new Binding("Text");
-             XValueBinding.Source = textBox1;
+             XValueBinding.Source = textBoxActions;
              XValueBinding.Mode = BindingMode.TwoWay;
              wPF3DChart1.SetBinding(WPF3DChart.XValuesInputProperty, XValueBinding);
 
              Binding YValueBinding = new Binding("Text");
-             YValueBinding.Source = textBox2;
+             YValueBinding.Source = textBoxConsequences;
              YValueBinding.Mode = BindingMode.TwoWay;
              wPF3DChart1.SetBinding(WPF3DChart.YValuesInputProperty, YValueBinding);
 
@@ -90,8 +90,8 @@ namespace Test3DChart
 
         public void Update()
         {
-            wPF3DChart1.XValuesInput = textBox1.Text;
-            wPF3DChart1.YValuesInput = textBox2.Text;
+            wPF3DChart1.XValuesInput = textBoxActions.Text;
+            wPF3DChart1.YValuesInput = textBoxConsequences.Text;
             wPF3DChart1.ZValuesInput = textBox3.Text;
             wPF3DChart1.ChartTitle = textBox4.Text;
             wPF3DChart1.Update();

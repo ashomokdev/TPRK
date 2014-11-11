@@ -76,10 +76,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddingLinesController.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Informator.cs" />
     <Compile Include="SalesData.cs" />
     <Compile Include="DataCollection.cs" />
     <Compile Include="Graph2D.xaml.cs">

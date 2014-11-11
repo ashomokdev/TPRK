@@ -17,6 +17,7 @@
 
             <!-- Chart with shared DataContext -->
             <chartingToolkit:Chart
+                Name="Chart2D"
                 Title="Графік непараметричної схеми ситуації"
                 DataContext="{StaticResource DataCollection}">
                 
@@ -25,13 +26,13 @@
                     <chartingToolkit:LinearAxis Title="Consequences (C)" Orientation="Y"/>
                 </chartingToolkit:Chart.Axes>
                 
-                <!-- West Store data -->
+                 <!--West Store data--> 
                 <chartingToolkit:LineSeries
                     Title="West Store"
                     ItemsSource="{Binding}"
                     IndependentValuePath="Actions"
                     DependentValuePath="WestStoreQuantity"/>
-                <!-- East Store data -->
+                 <!--East Store data--> 
                 <chartingToolkit:LineSeries
                     Title="East Store"
                     ItemsSource="{Binding}"

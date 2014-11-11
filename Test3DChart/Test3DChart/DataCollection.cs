@@ -15,6 +15,8 @@ namespace Test3DChart
             Add(new SalesData { Actions = "Birds", WestStoreQuantity = 3, EastStoreQuantity = 8 });
             Add(new SalesData { Actions = "Fish", WestStoreQuantity = 6, EastStoreQuantity = 9 });
             Add(new SalesData { Actions = "Fish2", WestStoreQuantity = 8, EastStoreQuantity = 19 });
+
+
         }
     }
 }
