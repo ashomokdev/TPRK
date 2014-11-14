@@ -20,14 +20,7 @@
                 <chartingToolkit:Chart.Axes>
                     <chartingToolkit:CategoryAxis Title="Actions (X)" Orientation="X"/>
                     <chartingToolkit:LinearAxis Title="Consequences (C)" Orientation="Y"/>
-                </chartingToolkit:Chart.Axes>
-                
-                 <!--West Store data--> 
-                <chartingToolkit:LineSeries
-                    Title="line1"
-                    IndependentValueBinding="{Binding Action}"
-                    DependentValueBinding="{Binding Consequence}"/>
-                
+                </chartingToolkit:Chart.Axes>                
             </chartingToolkit:Chart>
 
         </Grid>

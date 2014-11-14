@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace Test3DChart
 {
@@ -19,38 +20,98 @@ namespace Test3DChart
     /// </summary>
     public partial class Graph2D : Window
     {
+        private class ArrayIndex
+        {
+            internal Point[] Points;
+            internal int Index;
+            public ArrayIndex(Point[] points, int index)
+            {
+                Points = points;
+                Index = index;
+            }
+        }
+
         public Graph2D()
         {
-            InitializeComponent();
-            AddingLines();
+            try
+            {
+                InitializeComponent();
+                AddingLines();
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message + e.Source + e.InnerException);
+            //    throw;
+            }
         }
 
         public void AddingLines()
         {
-            List<Test3DChart.Point> sourse = new List<Test3DChart.Point>
+            int parametersCount = Informator.GetListParameters().Count;
+            List<string> actions = Informator.GetListActions();
+            Point[][] array2D = new Point[actions.Count][];
+            int seriesCount = 1;
+            for (int i = 0; i < actions.Count; i++)
             {
-                new Test3DChart.Point {Action = "x1", Consequence = 1}
-            };
-            LineSeries firstSeries = Chart2D.Series[0] as LineSeries;
-            firstSeries.ItemsSource = sourse;
+                //fill 2D array
+                array2D[i] = Informator.GetConsequences(actions[i]).ToArray();
+                Array.Sort(array2D[i], delegate(Point a, Point b)
+                {
+                    return a.Consequence.CompareTo(b.Consequence);
+                });
+                seriesCount = seriesCount * array2D[i].Length;
+            }
 
-
-            List<Test3DChart.Point> sourse2 = new List<Test3DChart.Point>
+            List<ArrayIndex> list = new List<ArrayIndex>();
+            for (int i = 0; i < array2D.Length; i++)
             {
-                new Test3DChart.Point {Action = "x2", Consequence = 2}
-            };
-            LineSeries testSeries = new LineSeries();
-            Chart2D.Series.Add(testSeries);
-            LineSeries secondSeries = Chart2D.Series[1] as LineSeries;
-            secondSeries.ItemsSource = sourse2;
+                ArrayIndex arrayIndex = new ArrayIndex(array2D[i], 0);
+                list.Add(arrayIndex);
+            }
 
-            //Chart2D.Series.Add(testSeries);
-            //DataCollection coll = new DataCollection();
-            //testSeries.ItemsSource = coll;
+            while (seriesCount > 0)
+            {
+                List<Test3DChart.Point> points = new List<Point>();
+                for (int i = 0; i < actions.Count; i++)
+                {
+                    Point point = list[i].Points[list[i].Index];
+                    points.Add(point);
+                }
 
-            
+                bool changed = false;
+                int tupleNumb = list.Count - 1;
+                while (!changed)
+                {
+                    int index = list[tupleNumb].Index;
+                    if (index + 1 < list[tupleNumb].Points.Length)
+                    {
+                        list[tupleNumb].Index = index + 1;
+                        changed = true;
+                    }
+                    else
+                    {
+                        list[tupleNumb].Index = 0;
+                        tupleNumb--;
+                    }
+                }
+                LineSeries lineSeries1 = new LineSeries();
+                lineSeries1.Title = GetTitle(points);
+                lineSeries1.DependentValuePath = "Consequence";
+                lineSeries1.IndependentValuePath = "Action";
+                lineSeries1.ItemsSource = points;
+                Chart2D.Series.Add(lineSeries1);
+                seriesCount--;
+            }
+        }
 
-        
+        private string GetTitle(List<Point> points)
+        {
+            string result = string.Empty;
+            for (int i = 0; i < points.Count; i++)
+            {
+                result += "(X" + (i + 1) + ", " + "C" + points[i].Consequence + ")";
+            }
+            return result;
         }
     }
 }

@@ -10,5 +10,15 @@ namespace Test3DChart
         public string Action { get; set; }
 
         public int Consequence { get; set; }
+
+        public Point(string action, int consequence)
+        {
+            this.Action = action;
+            this.Consequence = consequence;
+        }
+
+        public Point()
+        {            
+        }
     }
 }

@@ -30,7 +30,7 @@
             <Label Height="23" Name="label3" FontSize="12" Width="71" Canvas.Left="18" Canvas.Top="152.737">Θ Values :</Label>
             <TextBox Name="textBoxActions" Width="202" TabIndex="2" FontSize="12" Height="23" Canvas.Left="89" Canvas.Top="85.737" />
             <TextBox Name="textBoxConsequences" Width="202" TabIndex="3" FontSize="12" Height="23" Canvas.Left="89" Canvas.Top="118.737" />
-            <TextBox Height="23" Name="textBox3" Width="202" TabIndex="4" FontSize="12" Canvas.Left="89" Canvas.Top="152.737" />
+            <TextBox Height="23" Name="textBoxParameters" Width="202" TabIndex="4" FontSize="12" Canvas.Left="89" Canvas.Top="152.737" />
             <Slider Height="21" Name="slider1" Width="86" Canvas.Left="156.608" Canvas.Top="221" />
             <Label Height="30" Name="label12" Width="107" Canvas.Left="15" Canvas.Top="220" FontSize="12">Mouse Sensitivity:</Label>
             <Label Canvas.Left="20" Canvas.Top="118.737" Height="23" Name="label13" Width="69" FontSize="12">C Values :</Label>
