@@ -1985,14 +1985,7 @@ namespace Wpf3DChartTutorial
             YAxisColor = "Burlywood";
             XValuesInput = "За Мир, Злагода, Стабільність, Ділом, Аграрна партія"; //дії
             YValuesInput = "1, 1, 2, 2, 0, 2, 2, 2, 1, 0, 0, 2, 2, 2, 1, 0, 0, 1, 1, 2"; //наслідки //мають бути цифри!
-            ZValuesInput = "Правлячі, Новоутворені, Маргінальні, Опозиційні"; //значення неспостережуваного параметру 
-
-            //ChartTitle = "WPF 3D Chart Demo";
-            //XAxisColor = "Bisque";
-            //YAxisColor = "Burlywood";
-            //XValuesInput = "One,Two,Three,Four,Five";
-            //YValuesInput = "2, 4, 6, 8, 4, 9, 8, 10, 7, 6,11, 15, 12, 10, 9";
-            //ZValuesInput =  "Comp A,Comp B,Comp C";           
+            ZValuesInput = "Правлячі, Новоутворені, Маргінальні, Опозиційні"; //значення неспостережуваного параметру        
             ZValuesColor = "DarkGreen, DarkBlue, DarkRed, DarkCyan";
             MouseSens = DEFAULT_MOUSE_SENSITIVITY;
 

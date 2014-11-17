@@ -41,7 +41,7 @@ namespace Test3DChart
             catch (Exception e)
             {
                 System.Windows.Forms.MessageBox.Show(e.Message + e.Source + e.InnerException);
-            //    throw;
+                throw;
             }
         }
 
@@ -113,9 +113,16 @@ namespace Test3DChart
             string result = string.Empty;
             for (int i = 0; i < points.Count; i++)
             {
-                result += "(X" + (i + 1) + ", " + "C" + points[i].Consequence + ")";
+                result += "(X" + (i + 1) + ", " + "C" + (points[i].Consequence + 1) + ")";
             }
             return result;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Chart2D.Series.Clear();
+            Informator.Update();
+            AddingLines();
         }
     }
 }
