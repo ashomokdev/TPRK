@@ -28,8 +28,7 @@ namespace Test3DChart
              textBoxParameters.Text = wPF3DChart1.ZValuesInput;
              textBox4.Text = wPF3DChart1.ChartTitle;
              textBox5.Text = wPF3DChart1.ZValuesColor;
-             //textBox6.Text = wPF3DChart1.XAxisColor;
-             //textBox7.Text = wPF3DChart1.YAxisColor;
+
              slider1.Minimum = 1.0;
              slider1.Maximum = 20.0;
              slider1.Value = wPF3DChart1.MouseSens;
@@ -65,25 +64,6 @@ namespace Test3DChart
              ZValueColorBinding.Mode = BindingMode.TwoWay;
              wPF3DChart1.SetBinding(WPF3DChart.ZValuesColorProperty, ZValueColorBinding);
             
-
-            //Binding XAxisColorbinding = new Binding("Text");
-            //XAxisColorbinding.Source = textBox6;
-            //XAxisColorbinding.Mode = BindingMode.TwoWay;
-            //wPF3DChart1.SetBinding(WPF3DChart.XAxisColorProperty, XAxisColorbinding);
-
-            //Binding YAxisColorbinding = new Binding("Text");
-            //YAxisColorbinding.Source = textBox7;
-            //YAxisColorbinding.Mode = BindingMode.TwoWay;
-            //wPF3DChart1.SetBinding(WPF3DChart.YAxisColorProperty, YAxisColorbinding);
-
-            //radioButton2.IsChecked = true;
-
-            //Binding HideChartBinding = new Binding("IsChecked");
-            //HideChartBinding.Source = radioButton1;
-            //HideChartBinding.Mode = BindingMode.TwoWay;
-            //wPF3DChart1.SetBinding(WPF3DChart.HideChartProperty, HideChartBinding);
-
-
             Graph2D graph = new Graph2D();
             graph.Show();
         }

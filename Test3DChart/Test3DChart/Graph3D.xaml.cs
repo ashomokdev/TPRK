@@ -19,9 +19,20 @@ namespace Test3DChart
     /// </summary>
     public partial class Graph3D : Window
     {
-        public Graph3D()
+        private List<string> _seriesTitles;
+        private string _actions;
+        private string _consequences;
+
+        public Graph3D(List<string> seriesTitles, string actions, string consequences)
         {
             InitializeComponent();
+            _seriesTitles = seriesTitles;
+            _actions = actions;
+            _consequences = consequences;
+
+            wPF3DChart2.XValuesInput = _actions;
+            wPF3DChart2.YValuesInput = _consequences;
+            wPF3DChart2.ZValuesInput = GetZValuesInput(_seriesTitles);
             textBoxActions.Text = wPF3DChart2.XValuesInput;
             textBoxConsequences.Text = wPF3DChart2.YValuesInput;
             textBoxParameters.Text = wPF3DChart2.ZValuesInput;
@@ -62,6 +73,21 @@ namespace Test3DChart
             ZValueColorBinding.Source = textBox5;
             ZValueColorBinding.Mode = BindingMode.TwoWay;
             wPF3DChart2.SetBinding(WPF3DChart.ZValuesColorProperty, ZValueColorBinding);
+        }
+
+        private string GetZValuesInput(List<string> seriesTitles)
+        {
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < seriesTitles.Count; i++)
+            {
+                StringBuilder stringBuilder = new StringBuilder("Θ").Append(i + 1);
+                if (i != seriesTitles.Count - 1)
+                {
+                    stringBuilder.Append(", ");
+                }
+                result.Append(stringBuilder);
+            }
+            return result.ToString();
         }
     }
 }

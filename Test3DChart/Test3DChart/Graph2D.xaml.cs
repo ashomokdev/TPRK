@@ -37,7 +37,7 @@ namespace Test3DChart
             {
                 InitializeComponent();
                 AddingLines();
-                Graph3D graph = new Graph3D();
+                Graph3D graph = new Graph3D(seriesTitles, Informator.GetActions(), Informator.GetConsequences());
                 graph.Show();
             }
             catch (Exception e)
@@ -70,7 +70,7 @@ namespace Test3DChart
                 ArrayIndex arrayIndex = new ArrayIndex(array2D[i], 0);
                 list.Add(arrayIndex);
             }
-
+           
             while (seriesCount > 0)
             {
                 List<Test3DChart.Point> points = new List<Point>();
@@ -101,7 +101,9 @@ namespace Test3DChart
                     }
                 }
                 LineSeries lineSeries1 = new LineSeries();
-                lineSeries1.Title = GetTitle(points);
+                string title = GetTitle(points);
+                lineSeries1.Title = title;
+                seriesTitles.Add(title);
                 lineSeries1.DependentValuePath = "Consequence";
                 lineSeries1.IndependentValuePath = "Action";
                 lineSeries1.ItemsSource = points;
@@ -126,5 +128,7 @@ namespace Test3DChart
             Informator.Update();
             AddingLines();
         }
+
+        private List<string> seriesTitles = new List<string>();
     }
 }

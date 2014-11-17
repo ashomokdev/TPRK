@@ -30,12 +30,12 @@ namespace Test3DChart
             return null;
         }
 
-        private static string GetActions()
+        internal static string GetActions()
         {
             return startWindow.textBoxActions.Text;
         }
 
-        private static string GetConsequences()
+        internal static string GetConsequences()
         {
             return startWindow.textBoxConsequences.Text;
         }
