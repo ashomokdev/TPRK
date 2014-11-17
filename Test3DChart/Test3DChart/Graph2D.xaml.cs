@@ -37,6 +37,8 @@ namespace Test3DChart
             {
                 InitializeComponent();
                 AddingLines();
+                Graph3D graph = new Graph3D();
+                graph.Show();
             }
             catch (Exception e)
             {
