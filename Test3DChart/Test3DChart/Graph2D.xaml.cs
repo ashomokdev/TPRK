@@ -91,7 +91,11 @@ namespace Test3DChart
                     else
                     {
                         list[tupleNumb].Index = 0;
-                        tupleNumb--;
+                        tupleNumb = tupleNumb - 1;
+                        if (tupleNumb < 0)
+                        {
+                            changed = true;
+                        }
                     }
                 }
                 LineSeries lineSeries1 = new LineSeries();
