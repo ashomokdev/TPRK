@@ -37,7 +37,7 @@ namespace Test3DChart
             {
                 InitializeComponent();
                 AddingLines();
-                Graph3D graph = new Graph3D(seriesTitles, Informator.GetActions(), Informator.GetConsequences());
+                graph = new Graph3D(seriesPoints);
                 graph.Show();
             }
             catch (Exception e)
@@ -49,6 +49,7 @@ namespace Test3DChart
 
         public void AddingLines()
         {
+            seriesPoints = new List<List<Point>>();
             int parametersCount = Informator.GetListParameters().Count;
             List<string> actions = Informator.GetListActions();
             Point[][] array2D = new Point[actions.Count][];
@@ -103,7 +104,7 @@ namespace Test3DChart
                 LineSeries lineSeries1 = new LineSeries();
                 string title = GetTitle(points);
                 lineSeries1.Title = title;
-                seriesTitles.Add(title);
+                seriesPoints.Add(points);
                 lineSeries1.DependentValuePath = "Consequence";
                 lineSeries1.IndependentValuePath = "Action";
                 lineSeries1.ItemsSource = points;
@@ -117,6 +118,10 @@ namespace Test3DChart
             string result = string.Empty;
             for (int i = 0; i < points.Count; i++)
             {
+                result += points[i].Consequence;
+            }
+            for (int i = 0; i < points.Count; i++)
+            {
                 result += "(X" + (i + 1) + ", " + "C" + (points[i].Consequence + 1) + ")";
             }
             return result;
@@ -127,8 +132,12 @@ namespace Test3DChart
             Chart2D.Series.Clear();
             Informator.Update();
             AddingLines();
+            graph.Close();
+            graph = new Graph3D(seriesPoints);
+            graph.Show();
         }
 
-        private List<string> seriesTitles = new List<string>();
+        public List<List<Point>> seriesPoints = new List<List<Point>>();
+        private Graph3D graph;
     }
 }

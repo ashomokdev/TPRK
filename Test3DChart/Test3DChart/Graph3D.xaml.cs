@@ -19,23 +19,30 @@ namespace Test3DChart
     /// </summary>
     public partial class Graph3D : Window
     {
-        private List<string> _seriesTitles;
-        private string _actions;
-        private string _consequences;
-
-        public Graph3D(List<string> seriesTitles, string actions, string consequences)
+        private List<List<Point>> _seriesPoints;
+        public Graph3D(List<List<Point>> seriesPoints)
         {
             InitializeComponent();
-            _seriesTitles = seriesTitles;
-            _actions = actions;
-            _consequences = consequences;
+            _seriesPoints = seriesPoints;
+            InitializeGraph(_seriesPoints);
+        }
 
-            wPF3DChart2.XValuesInput = _actions;
-            wPF3DChart2.YValuesInput = _consequences;
-            wPF3DChart2.ZValuesInput = GetZValuesInput(_seriesTitles);
+        private void InitializeGraph(List<List<Point>> seriesPoints)
+        {
+            int ΘCount = seriesPoints.Count;
+            string actions = GetActions(seriesPoints[0]);
+            string consequences = GetConsequences(seriesPoints);
+
+            wPF3DChart2.XValuesInput = actions;
+            wPF3DChart2.YValuesInput = consequences;
+            wPF3DChart2.ZValuesInput = GetZValuesInput(ΘCount);
+            wPF3DChart2.ChartTitle = "Розтягнена параметрична схема ситуації";
+            wPF3DChart2.ZValuesColor = GetZValuesColor(ΘCount);
+
             textBoxActions.Text = wPF3DChart2.XValuesInput;
             textBoxConsequences.Text = wPF3DChart2.YValuesInput;
             textBoxParameters.Text = wPF3DChart2.ZValuesInput;
+
             textBox4.Text = wPF3DChart2.ChartTitle;
             textBox5.Text = wPF3DChart2.ZValuesColor;
 
@@ -75,13 +82,70 @@ namespace Test3DChart
             wPF3DChart2.SetBinding(WPF3DChart.ZValuesColorProperty, ZValueColorBinding);
         }
 
-        private string GetZValuesInput(List<string> seriesTitles)
+        private string GetZValuesColor(int ΘCount)
+        {
+            Random randomGen = new Random();
+            var props = typeof(Colors).GetProperties();
+            List<string> knownColors = new List<string>();
+            foreach (var prop in props)
+            {
+                knownColors.Add(prop.Name);
+            }
+
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < ΘCount; i++)
+            {
+                int randomIndex = randomGen.Next(knownColors.Count);
+                StringBuilder stringBuilder = new StringBuilder(knownColors[randomIndex]);
+                if (i != ΘCount - 1)
+                {
+                    stringBuilder.Append(", ");
+                }
+                result.Append(stringBuilder);
+            }
+            return result.ToString();
+        }
+
+        private string GetConsequences(List<List<Point>> seriesPoints)
         {
             StringBuilder result = new StringBuilder();
-            for (int i = 0; i < seriesTitles.Count; i++)
+            for (int i = 0; i < seriesPoints.Count;  i++)
+            {
+                for (int j = 0; j < seriesPoints[i].Count; j++)
+                {
+                    StringBuilder stringBuilder = new StringBuilder(seriesPoints[i][j].Consequence.ToString());
+                    if (i != seriesPoints.Count - 1 || j != seriesPoints[i].Count -1)
+                    {
+                        stringBuilder.Append(", ");
+                    }
+                    result.Append(stringBuilder);
+                }
+            }
+            return result.ToString();  
+        }
+
+        private string GetActions(List<Point> points)
+        {
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < points.Count; i++)
+            {
+                StringBuilder stringBuilder = new StringBuilder(points[i].Action);
+                if (i != points.Count - 1)
+                {
+                    stringBuilder.Append(", ");
+                }
+                result.Append(stringBuilder);
+            }
+            return result.ToString();
+        }
+
+        private string GetZValuesInput(int ΘCount)
+        {
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < ΘCount; i++)
             {
                 StringBuilder stringBuilder = new StringBuilder("Θ").Append(i + 1);
-                if (i != seriesTitles.Count - 1)
+                if (i != ΘCount - 1)
                 {
                     stringBuilder.Append(", ");
                 }

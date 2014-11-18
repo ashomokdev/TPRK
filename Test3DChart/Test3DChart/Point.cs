@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Test3DChart
 {
-    class Point
+    public class Point
     {
         public string Action { get; set; }
 
