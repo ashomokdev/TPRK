@@ -91,7 +91,6 @@
     </Compile>
     <Compile Include="Informator.cs" />
     <Compile Include="Point.cs" />
-    <Compile Include="SalesData.cs" />
     <Compile Include="DataCollection.cs" />
     <Compile Include="Graph2D.xaml.cs">
       <DependentUpon>Graph2D.xaml</DependentUpon>
